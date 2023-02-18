@@ -7,6 +7,6 @@ export class GameState {
         this.opponent = opponent ?? new ComputerPlayer("Computer");
         this.message = "";
         this.gameOver = false;
-        this.currentState = "start";
+        this.currentState = "game";
     }
 }

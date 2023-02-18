@@ -1,6 +1,6 @@
 <script>
   import { gameState } from "./Game";
-
+  import Card from "./Card.svelte";
   export let disabled;
 </script>
 
@@ -15,37 +15,27 @@
   .selected {
     color: red;
   }
-  .cards {
+
+  .card-container {
+    overflow-x: auto;
+    width: 100vw;
+  }
+  .card-grid {
     display: flex;
-    justify-content: center;
+    flex-wrap: nowrap;
+    justify-content: start;
     gap: 1rem;
   }
 
-  .card {
-    background-color: white;
-    border: 2px solid black;
-    border-radius: 5px;
+  .card-cell {
     cursor: pointer;
     padding: 0.5rem;
-    width: 8rem;
+    width: 12rem;
   }
 
-  .card.disabled {
+  .card-cell.disabled {
     background-color: gray;
     cursor: not-allowed;
-  }
-
-  .card-title {
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    text-align: center;
-  }
-
-  .card-attack,
-  .card-defense {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
   }
 
   .play-button {
@@ -64,25 +54,34 @@
     background-color: gray;
     cursor: not-allowed;
   }
+
+  /* Media query for smaller screens */
+  @media (max-width: 600px) {
+    .card-cell {
+      width: 6rem;
+    }
+  }
 </style>
 
-<h3>{$gameState.player.selectCard}</h3>
 <div class="game-controls">
-  <div class="cards">
-    {#each $gameState.player.deck.cards as card, index}
-      <div
-        class="card"
-        class:disabled="{disabled}"
-        class:selected="{card === $gameState.player.selectedCard}"
-        on:click="{() => gameState.selectCard(card)}">
-        <div class="card-title">{card.name}</div>
-        <div class="card-attack">Attack: {card.attack}</div>
-        <div class="card-defense">Defense: {card.defense}</div>
-      </div>
-    {/each}
+  <div class="card-container">
+    <div class="card-grid">
+      {#each $gameState.player.deck.cards as card, index}
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <div
+          class="card-cell"
+          class:disabled="{disabled}"
+          class:selected="{card === $gameState.player.selectedCard}"
+          on:click="{() => gameState.selectCard(card)}">
+          <Card card="{card}" />
+        </div>
+      {/each}
+    </div>
   </div>
   <button
     class="play-button"
     disabled="{disabled || $gameState.player.selectedCard == null}"
-    on:click="{() => gameState.playTurn()}">Execute Script</button>
+    on:click="{() => gameState.playTurn()}">
+    Execute Script
+  </button>
 </div>

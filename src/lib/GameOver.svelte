@@ -1,17 +1,17 @@
 <script>
-    import { createEventDispatcher } from "svelte";
-    const dispatcher = createEventDispatcher();
-    export let winner;
+    import { gameState } from "./Game";
+    let winner = $gameState.player;
 
-    function restart() {
-        // Dispatch a "restart" event to reset the game state
-        dispatcher("restart");
+    if($gameState.player.hitPoints <= 0 && $gameState.opponent.hitPoints > 0){
+        winner = $gameState.opponent;
     }
-</script>
+
+  </script>
 
 <div class="game-over">
     <h2>{winner.name} wins!</h2>
-    <button on:click={restart}>Restart</button>
+    <button on:click={() => gameState.restart()}>Restart</button>
+    <button on:click={() => gameState.startNewGame()}>New Game</button>
 </div>
 
 <style>

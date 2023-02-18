@@ -1,30 +1,17 @@
 <script>
-    import Game from "./lib/Game.svelte";
-</script>
-
-<main>
-	
+	import { onMount } from 'svelte';
+	import { gameState } from './lib/Game.js';
+	import StartScreen from './lib/StartScreen.svelte';
+	import Game from './lib/Game.svelte';
+	import GameOver from './lib/GameOver.svelte';
+  
+  </script>
+  
+  {#if $gameState.currentState === 'start'}
+	<StartScreen />
+  {:else if $gameState.currentState === 'game'}
 	<Game />
-</main>
-
-<style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-</style>
+  {:else if $gameState.currentState === 'gameOver'}
+	<GameOver />
+  {/if}
+  

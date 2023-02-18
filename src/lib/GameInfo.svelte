@@ -1,6 +1,5 @@
 <script>
     import { gameState } from "./Game";
-    import Game from "./Game.svelte";
   </script>
   
   <div class="game-info">

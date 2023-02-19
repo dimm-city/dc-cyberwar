@@ -1,33 +1,28 @@
 <script>
-  import { onMount } from "svelte";
-  import PlayerHand from "./PlayerHand.svelte";
-  import OpponentHand from "./OpponentHand.svelte";
+  import StartScreen from "./StartScreen.svelte";
   import GameInfo from "./GameInfo.svelte";
   import GameControls from "./GameControls.svelte";
   import GameOver from "./GameOver.svelte";
-  import { gameState } from "./Game";
-
-  onMount(async () => {
-    //   const res = await fetch('/game');
-    //   const data = await res.json();
-    //   gameState.player.name = data.player.name;
-    //   gameState.player.hand = data.player.hand;
-  });
-
-  function handlePlayCard() {
-    // TODO: implement play card logic
-  }
+  import { gameState, states } from "./model/Game";
+  import ShowCards from "./ShowCards.svelte";
 </script>
 
 <main>
-  {#if $gameState.isGameOver}
-    <GameOver gameState="{gameState}" />
-  {:else}
-    <h1>DCC Hacking Terminal</h1>
-    <h2>Welcome, {$gameState.player.name}!</h2>
-    <!-- <PlayerHand /> -->
-    <OpponentHand />
+  <h1>DCC Rooting Terminal v0.0.1</h1>
+  {#if $gameState.currentState !== states.START_SCREEN}
     <GameInfo />
-    <GameControls />
+  {/if}
+  {#if $gameState.currentState === states.START_SCREEN}
+    <StartScreen />
+  {:else if $gameState.currentState === states.SELECT_CARD}
+    <div>
+      <GameControls />
+    </div>
+  {:else if $gameState.currentState === states.SHOW_CARDS}
+    <div>
+		<ShowCards />
+	</div>
+  {:else if $gameState.currentState === states.GAME_OVER}
+    <GameOver />
   {/if}
 </main>

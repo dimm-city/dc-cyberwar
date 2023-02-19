@@ -9,10 +9,6 @@ export class Player {
         this.selectedCard = null;
     }
 
-    getCardCount() {
-        return this.deck.length;
-    }
-
     playCard() {
         var result = this.selectedCard;
         this.selectedCard = null;

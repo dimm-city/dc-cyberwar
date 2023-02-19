@@ -1,5 +1,5 @@
 <script>
-    import { gameState } from "./Game";
+    import { gameState } from "./model/Game";
     let winner = $gameState.player;
 
     if($gameState.player.hitPoints <= 0 && $gameState.opponent.hitPoints > 0){

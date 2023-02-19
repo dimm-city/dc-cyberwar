@@ -1,5 +1,5 @@
 <script>
-  import { Card } from "./Card";
+  import { Card } from "./model/Card";
   export let card = new Card();
 </script>
 
@@ -7,6 +7,7 @@
   .card {
     aspect-ratio: 9/16;
     min-width: 10rem;
+    max-width: 20rem;
     display: flex;
     background-color: #1c1c1c;
     background-image: url("/card-bg.png");
@@ -66,7 +67,7 @@
   }
 </style>
 
-<div class="card" data-augmented-ui="br-clip bl-clip tr-clip tl-2-clip-x">
+<div class="card" data-augmented-ui="br-clip bl-clip tr-clip tl-2-clip-x" style="background-image: url('/assets/{card.type}-card-bg.png');">
   <div class="card-content">
     <div class="card-title" data-augmented-ui="">
       {card.name}

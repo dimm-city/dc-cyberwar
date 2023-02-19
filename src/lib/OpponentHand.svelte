@@ -1,5 +1,5 @@
 <script>
-    import { gameState } from './Game';
+    import { gameState } from './model/Game';
     const cards = $gameState.opponent.deck.cards;
 </script>
 

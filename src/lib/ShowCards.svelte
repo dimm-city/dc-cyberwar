@@ -42,8 +42,8 @@
 
 <div class="card-display-container">
   <div class="card-display">
-    <Card card="{$gameState.selectedCards.opponent}" />
     <Card card="{$gameState.selectedCards.player}" />
+    <Card card="{$gameState.selectedCards.opponent}" />
   </div>
 </div>
 <div class="game-controls">

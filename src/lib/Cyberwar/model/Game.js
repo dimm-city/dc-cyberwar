@@ -1,7 +1,7 @@
 import { writable, get } from "svelte/store";
-import { ComputerPlayer } from "./ComputerPlayer";
+import { Card } from "./Card";
 import { GameState } from "./GameState";
-import { Player } from "./Player";
+import cards from "./cyberwar-cards.json";
 
 export const states = {
   START_SCREEN: "start_screen",
@@ -11,7 +11,10 @@ export const states = {
   GAME_OVER: "game_over",
 };
 // Define the game state
-const gameStore = writable(new GameState(new Player(), new ComputerPlayer()));
+let availableCards = cards.map(c => new Card(c.slug, c.type, c.name, c.attack, c.defense, c.description));
+const initialState = new GameState(null, null);
+initialState.availableCards = availableCards;
+const gameStore = writable(initialState);
 
 // Define the play turn function
 async function playTurn() {
@@ -60,17 +63,21 @@ async function nextRound() {
   }
 }
 
+
 export const gameState = {
   subscribe: gameStore.subscribe,
-  startGame() {
+  startGame(player, opponent) {
     gameStore.update((state) => {
+      state.player = player;
+      state.opponent = opponent;
       state.currentState = states.SELECT_CARD;
       return state;
     });
   },
-  startNewGame() {
+  async startNewGame() {
     gameStore.update((state) => {
-      state = new GameState();
+      state.availableCards = availableCards;
+      state.currentState = states.START_SCREEN;
       return state;
     });
   },
@@ -87,9 +94,10 @@ export const gameState = {
   restart() {
     gameStore.update((state) => {
       state = new GameState(state.player, state.opponent);
+      state.player.resetHitPoints();
+      state.player.selectCard = null;
+      state.opponent.resetHitPoints();
       state.currentState = states.SELECT_CARD;
-      state.player.hitPoints = 10;
-      state.opponent.hitPoints = 10;
       return state;
     });
   },

@@ -1,0 +1,502 @@
+[
+    {
+        "id": 1,
+        "slug": "sql-injection",
+        "name": "SQL Injection",
+        "attack": 3,
+        "defense": 2,
+        "description": "Poisoning databases with malicious queries.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 2,
+        "slug": "cross-site-scripting",
+        "name": "Cross-site Scripting",
+        "attack": 1,
+        "defense": 4,
+        "description": "Injecting code, where your web app is lacking.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 3,
+        "slug": "distributed-denial-of-service",
+        "name": "Distributed Denial of Service",
+        "attack": 5,
+        "defense": 0,
+        "description": "Overloading your servers with pings, until they give up the ghost.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 4,
+        "slug": "social-engineering",
+        "name": "Social Engineering",
+        "attack": 2,
+        "defense": 3,
+        "description": "Tricking people into revealing secrets, one human at a time.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 5,
+        "slug": "man-in-the-middle",
+        "name": "Man-in-the-Middle",
+        "attack": 3,
+        "defense": 2,
+        "description": "Intercepting communications, as you surf through the net.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 6,
+        "slug": "backdoor",
+        "name": "Backdoor",
+        "attack": 5,
+        "defense": 0,
+        "description": "Slipping through a secret entrance, into a fortified system.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 7,
+        "slug": "buffer-overflow",
+        "name": "Buffer Overflow",
+        "attack": 3,
+        "defense": 1,
+        "description": "Flooding memory with bytes, until it bursts at the seams.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 8,
+        "slug": "keylogger",
+        "name": "Keylogger",
+        "attack": 1,
+        "defense": 4,
+        "description": "Stealthily recording your every keystroke, as you type away in blissful ignorance.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 9,
+        "slug": "phishing",
+        "name": "Phishing",
+        "attack": 1,
+        "defense": 4,
+        "description": "Luring the unsuspecting to a trap, with a cleverly disguised bait.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 10,
+        "slug": "network-mapping",
+        "name": "Network Mapping",
+        "attack": 2,
+        "defense": 3,
+        "description": "Probing the network for vulnerabilities, with eyes unblinking.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 11,
+        "slug": "dns-spoofing",
+        "name": "DNS Spoofing",
+        "attack": 3,
+        "defense": 2,
+        "description": "Poisoning the cache with fraudulent entries, to direct traffic your way.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 12,
+        "slug": "trojan-horse",
+        "name": "Trojan Horse",
+        "attack": 4,
+        "defense": 1,
+        "description": "Smuggling in a deadly package, hidden in plain sight.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 13,
+        "slug": "rootkit",
+        "name": "Rootkit",
+        "attack": 4,
+        "defense": 1,
+        "description": "Concealing its presence, while it hijacks control of the system.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 14,
+        "slug": "session-hijacking",
+        "name": "Session Hijacking",
+        "attack": 3,
+        "defense": 2,
+        "description": "Taking over an authenticated session, to wreak havoc in plain view.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 15,
+        "slug": "worm",
+        "name": "Worm",
+        "attack": 1,
+        "defense": 1,
+        "description": "Replicating like a virus, spreading destruction far and wide.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 16,
+        "slug": "logic-bomb",
+        "name": "Logic Bomb",
+        "attack": 2,
+        "defense": 3,
+        "description": "Waiting silently, until the perfect moment to strike.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 17,
+        "slug": "ransomware",
+        "name": "Ransomware",
+        "attack": 1,
+        "defense": 1,
+        "description": "Holding your data hostage, for a king's ransom in bitcoin.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 18,
+        "slug": "zero-day-exploit",
+        "name": "Zero-day Exploit",
+        "attack": 1,
+        "defense": 1,
+        "description": "Taking advantage of unpatched software, before anyone knows the flaw.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 19,
+        "slug": "brute-force",
+        "name": "Brute Force",
+        "attack": 3,
+        "defense": 0,
+        "description": "Battering down the door with sheer strength, and the will to succeed.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 20,
+        "slug": "sql-sniffing",
+        "name": "SQL Sniffing",
+        "attack": 2,
+        "defense": 1,
+        "description": "Eavesdropping on the database, to steal its secrets.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 21,
+        "slug": "password-attack",
+        "name": "Password Attack",
+        "attack": 1,
+        "defense": 1,
+        "description": "Guessing every combination, until the gates unlock.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 22,
+        "slug": "exploit-kits",
+        "name": "Exploit Kits",
+        "attack": 3,
+        "defense": 0,
+        "description": "Bundling attacks, to unleash them in a devastating barrage.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 23,
+        "slug": "fileless-malware",
+        "name": "Fileless Malware",
+        "attack": 3,
+        "defense": 0,
+        "description": "Striking like a ninja, leaving no trace of its deadly presence.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 24,
+        "slug": "honeypot",
+        "name": "Honeypot",
+        "attack": 2,
+        "defense": 3,
+        "description": "Tempting attackers into a trap, with a delectable prize.",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 25,
+        "slug": "remote-access-trojan",
+        "name": "Remote Access Trojan",
+        "attack": 2,
+        "defense": 1,
+        "description": "Sneaking into the system, from the comfort of your own lair.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 26,
+        "slug": "ad-fraud",
+        "name": "Ad Fraud",
+        "attack": 1,
+        "defense": 2,
+        "description": "Pocketing profits from phony clicks, with digital sleight of hand.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 27,
+        "slug": "macro-virus",
+        "name": "Macro Virus",
+        "attack": 2,
+        "defense": 1,
+        "description": "Infecting the most unsuspecting of places, with the power of automation.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 28,
+        "slug": "packet-sniffing",
+        "name": "Packet Sniffing",
+        "attack": 1,
+        "defense": 2,
+        "description": "Capturing network traffic, to reveal its hidden secrets.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 29,
+        "slug": "advanced-persistent-threat",
+        "name": "Advanced Persistent Threat",
+        "attack": 3,
+        "defense": 1,
+        "description": "Slowly and methodically, stalking its prey in the shadows.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 30,
+        "slug": "cross-site-request-forgery",
+        "name": "Cross-Site Request Forgery",
+        "attack": 2,
+        "defense": 1,
+        "description": "Faking the source of a web request, to cause chaos behind the scenes.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 31,
+        "slug": "firewall",
+        "name": "Firewall",
+        "attack": 1,
+        "defense": 3,
+        "description": "The digital fortress that keeps out intruders",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 32,
+        "slug": "anti-virus-software",
+        "name": "Anti-virus Software",
+        "attack": 0,
+        "defense": 2,
+        "description": "The vigilant protector against malware and viruses",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 33,
+        "slug": "intrusion-detection-system",
+        "name": "Intrusion Detection System",
+        "attack": 4,
+        "defense": 1,
+        "description": "The watchful sentinel on the lookout for unwanted guests",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 34,
+        "slug": "security-information-and-event-management",
+        "name": "Security Information and Event Management",
+        "attack": 1,
+        "defense": 2,
+        "description": "The analyzer and collector of digital data to keep you safe",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 35,
+        "slug": "virtual-private-network",
+        "name": "Virtual Private Network",
+        "attack": 1,
+        "defense": 3,
+        "description": "The secret tunnel through which your digital footprints can safely travel",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 36,
+        "slug": "patch-management",
+        "name": "Patch Management",
+        "attack": 0,
+        "defense": 1,
+        "description": "The gatekeeper that ensures your digital armor is never vulnerable",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 37,
+        "slug": "access-control",
+        "name": "Access Control",
+        "attack": 1,
+        "defense": 3,
+        "description": "The guard that protects the castle by controlling who enters and who leaves",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 38,
+        "slug": "data-backup-and-recovery",
+        "name": "Data Backup and Recovery",
+        "attack": 0,
+        "defense": 5,
+        "description": "The safety net that keeps your digital valuables from being lost forever",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 39,
+        "slug": "encryption",
+        "name": "Encryption",
+        "attack": 0,
+        "defense": 5,
+        "description": "The secret code that only those with the key can decipher",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 40,
+        "slug": "network-segmentation",
+        "name": "Network Segmentation",
+        "attack": 1,
+        "defense": 3,
+        "description": "The digital walls that keep different parts of your castle separate",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 41,
+        "slug": "two-factor-authentication",
+        "name": "Two-Factor Authentication",
+        "attack": 0,
+        "defense": 3,
+        "description": "The gatekeeper that requires two keys to open the door",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 42,
+        "slug": "security-awareness-training",
+        "name": "Security Awareness Training",
+        "attack": 1,
+        "defense": 1,
+        "description": "The digital sensei that teaches you how to protect yourself",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 43,
+        "slug": "incident-response-plan",
+        "name": "Incident Response Plan",
+        "attack": 0,
+        "defense": 2,
+        "description": "The digital fire department that puts out the flames and minimizes the damage",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 44,
+        "slug": "web-application-firewall",
+        "name": "Web Application Firewall",
+        "attack": 2,
+        "defense": 3,
+        "description": "The protector of your digital storefront, ensuring only the good guys get in",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 45,
+        "slug": "network-monitoring",
+        "name": "Network Monitoring",
+        "attack": 3,
+        "defense": 2,
+        "description": "The digital neighborhood watch that keeps an eye out for suspicious activity",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 46,
+        "slug": "ad-blocker",
+        "name": "Ad Blocker",
+        "attack": 1,
+        "defense": 1,
+        "description": "A digital bouncer keeping unwanted guests out of your online party.",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 47,
+        "slug": "cryptojacking",
+        "name": "Cryptojacking",
+        "attack": 3,
+        "defense": 1,
+        "description": "A surreptitious robbery in the night, stealing your computer's might.",
+        "type": "exploit",
+        "kitType": "any"
+    },
+    {
+        "id": 48,
+        "slug": "deception-technology",
+        "name": "Deception Technology",
+        "attack": 2,
+        "defense": 3,
+        "description": "A smoke and mirrors show, fooling foes as you go.",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 49,
+        "slug": "iot-security",
+        "name": "IoT Security",
+        "attack": 3,
+        "defense": 3,
+        "description": "A watchful eye over all, keeping safe the things we install.",
+        "type": "protection",
+        "kitType": "any"
+    },
+    {
+        "id": 50,
+        "slug": "threat-intelligence",
+        "name": "Threat Intelligence",
+        "attack": 1,
+        "defense": 2,
+        "description": "A sniffer dog in the digital realm, catching the bad guys at the helm.",
+        "type": "protection",
+        "kitType": "any"
+    }
+]

@@ -1,5 +1,5 @@
 {
-	"name": "dc-cyberwar",
+	"name": "@dimm-city/dc-cyberwar",
 	"version": "0.0.1",
 	"scripts": {
 		"dev": "vite dev",

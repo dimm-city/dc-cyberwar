@@ -53,6 +53,8 @@
 		<button data-augmented-ui class="aug-button" on:click={() => (view = 'settings')}
 			>configure kit</button
 		>
+		{$gameState.player.rootKit.cards.length}
+		{$gameState.player.rootKit.availableCards?.length}
 		<hr />
 		<h4>Opponent: {opponent?.name}</h4>
 		<!-- <RangeSlider range pushy values={[opponentSettings.minSlots,opponentSettings.maxSlots]} /> -->

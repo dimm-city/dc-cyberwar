@@ -17,3 +17,7 @@
 ## v0.0.4
 
 * Added card cool down
+
+## v0.0.5
+
+* Fixed typo

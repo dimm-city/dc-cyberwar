@@ -13,3 +13,7 @@
 ## v0.0.3
 
 * Added logging
+
+## v0.0.4
+
+* Added card cool down

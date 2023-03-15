@@ -38,7 +38,7 @@
 
 <div class="card-container">
   <div class="card-grid">
-    {#each $gameState.player.rootKit.cards as card, index}
+    {#each $gameState.player.rootKit.availableCards as card, index}
       <!-- svelte-ignore a11y-click-events-have-key-events -->
       <div
         class="card-cell"

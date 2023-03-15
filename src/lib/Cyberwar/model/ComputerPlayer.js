@@ -19,9 +19,9 @@ export class ComputerPlayer extends Player {
 		this.selectedCard = selectCardRandomly(this.rootKit.cards);
 	}
 
-	playCard() {
-		this.selectedCard = selectCardRandomly(this.rootKit.cards);
-		return super.playCard();
+	playCard(state) {
+		this.selectedCard = selectCardRandomly(this.rootKit.availableCards);
+		return super.playCard(state);
 	}
 }
 

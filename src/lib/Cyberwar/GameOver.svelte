@@ -29,11 +29,12 @@
 </style>
 
 <div class="game-over">
-	<h2>{winner.name} wins!</h2>
+	<h2>{$gameState.winner.name} wins!</h2>
+	<p>{$gameState.message}</p>
 	<div class="button-container">
 		<button data-augmented-ui class="aug-button" on:click={() => gameState.restart()}>Restart</button>
 		<button data-augmented-ui class="aug-button" on:click={() => gameState.startNewGame()}>New Game</button>
 	</div>
 
-    <p>Restart to play against the same opponent or start a new game to root a different system.</p>
+    <p>Restart to play against the same opponent or start a new game to attack a different system.</p>
 </div>

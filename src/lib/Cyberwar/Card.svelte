@@ -4,6 +4,29 @@
 	export let selected = false;
 </script>
 
+<div
+	on:click
+	on:keyup
+	class="card"
+	class:selected
+	data-augmented-ui="br-clip bl-clip tr-clip tl-2-clip-x"
+	style="background-image: url('/assets/imgs/cards/{card.type}-card-bg.png');"
+>
+	<div class="card-content">
+		<div class="card-title">
+			{card.name}
+		</div>
+		<div class="card-type" data-augmented-ui>{card.type}</div>
+		<div class="card-description">
+			{card.description ?? '&nbsp;'}
+		</div>
+		<div class="card-footer">
+			<span data-augmented-ui="">ATK: {card.attack}</span>
+			<span data-augmented-ui="">DEF: {card.defense}</span>
+		</div>
+	</div>
+</div>
+
 <style>
 	.card {
 		aspect-ratio: 9/16;
@@ -28,16 +51,16 @@
 	}
 
 	.card-title {
-		font-size: clamp(.5rem,1rem,.7rem);
+		font-size: clamp(0.5rem, 1rem, 0.7rem);
 		white-space: nowrap;
 		font-weight: bold;
 		text-align: center;
 		align-self: center;
 	}
 
-  .selected .card-title {
-    color: var(--third-accent);
-  }
+	.selected .card-title {
+		color: rgb(94, 94, 94);
+	}
 	.card-type {
 		font-size: 0.75rem;
 		text-align: center;
@@ -72,26 +95,3 @@
 		--aug-border-all: 1px;
 	}
 </style>
-
-<div
-	on:click
-	on:keyup
-	class="card"
-	class:selected
-	data-augmented-ui="br-clip bl-clip tr-clip tl-2-clip-x"
-	style="background-image: url('/assets/imgs/cards/{card.type}-card-bg.png');"
->
-	<div class="card-content">
-		<div class="card-title">
-			{card.name}
-		</div>
-		<div class="card-type" data-augmented-ui>{card.type}</div>
-		<div class="card-description">
-			{card.description ?? '&nbsp;'}
-		</div>
-		<div class="card-footer">
-			<span data-augmented-ui="">ATK: {card.attack}</span>
-			<span data-augmented-ui="">DEF: {card.defense}</span>
-		</div>
-	</div>
-</div>

@@ -11,6 +11,6 @@ export class RootKit {
         this.cards = cards;
     }
     getHitPoints() {
-        return this.slots * 5;
+        return this.slots * 3;
     }
 }

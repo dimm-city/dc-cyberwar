@@ -13,8 +13,8 @@ export class Card {
         this.name = name;
         this.type = type;
         this.kitType = "any";
-        this.attack = attack;
-        this.defense = defense;
+        this.attack = attack ?? 0;
+        this.defense = defense ?? 0;
         this.description = description;
     }
 }

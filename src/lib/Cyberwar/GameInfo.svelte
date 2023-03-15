@@ -35,7 +35,9 @@
 			<span> <a data-augmented-ui on:click={() => gameState.startNewGame()}> quit </a></span>
 		</div>
 	</div>
-
+<div>
+	Current Round: {$gameState.currentRound} / {$gameState.settings.maxRounds}
+</div>
 	<div class="player-stats">
 		{$gameState.opponent.name}
 		<div class="player-details">

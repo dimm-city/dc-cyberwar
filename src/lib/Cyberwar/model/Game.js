@@ -20,17 +20,28 @@ const gameStore = writable(initialState);
 
 // Define the play turn function
 async function playTurn() {
-	const player = get(gameStore).player;
-	const opponent = get(gameStore).opponent;
+	const state = get(gameStore);
+	const player = state.player;
+	const opponent = state.opponent;
 
 	const opponentCard = opponent.playCard();
 	const playerCard = player.playCard();
 
 	if (playerCard.attack > opponentCard.defense) {
-		opponent.hitPoints -= playerCard.attack - opponentCard.defense;
+		const damage = playerCard.attack - opponentCard.defense;
+		opponent.hitPoints -= damage;
+		state.log.push({
+			round:state.currentRound,
+			message: `${player.name} attacks for ${damage} damage`,
+		});
 	}
 	if (opponentCard.attack > playerCard.defense) {
-		player.hitPoints -= opponentCard.attack - playerCard.defense;
+		const damage = opponentCard.attack - playerCard.defense;
+		player.hitPoints -= damage;
+		state.log.push({
+			round:state.currentRound,
+			message: `${opponent.name} deals ${damage} counterattack damage`,
+		});
 	}
 
 	gameStore.update((state) => {
@@ -46,11 +57,19 @@ async function nextRound() {
 	const player = state.player;
 	const opponent = state.opponent;
 
-	if (state.settings.maxRounds > 0 && state.currentRound == state.settings.maxRounds && opponent.hitPoints > 0) {
+	if (
+		state.settings.maxRounds > 0 &&
+		state.currentRound == state.settings.maxRounds &&
+		opponent.hitPoints > 0
+	) {
 		gameStore.update((state) => {
+			state.log.push({
+				round:state.currentRound,
+				message: `${opponent.name} has successfully defended against the attack!`
+			});
 			state.selectedCards.opponent = null;
 			state.selectedCards.player = null;
-      state.winner = state.opponent;
+			state.winner = state.opponent;
 			return {
 				...state,
 				message: `${opponent.name} has successfully defended against the attack!`,
@@ -59,9 +78,13 @@ async function nextRound() {
 		});
 	} else if (player.hitPoints <= 0 || opponent.hitPoints <= 0) {
 		gameStore.update((state) => {
+			state.winner = state.player.hitPoints <= 0 ? state.opponent : state.player;
+			state.log.push({
+				round:state.currentRound,
+				message: `${state.winner.name} has successfully hacked the system!`,
+			});
 			state.selectedCards.opponent = null;
 			state.selectedCards.player = null;
-      state.winner = state.player.hitPoints <= 0 ? state.opponent : state.player;
 			return {
 				...state,
 				message: `${state.winner.name} has successfully hacked the system!`,
@@ -82,17 +105,17 @@ async function nextRound() {
 export const gameState = {
 	subscribe: gameStore.subscribe,
 	/**
-   * @param {import("./Player").Player} player
-   * @param {import("./ComputerPlayer").ComputerPlayer} opponent
-   * @param {import("./GameSettings").GameSettings} settings
-   */
+	 * @param {import("./Player").Player} player
+	 * @param {import("./ComputerPlayer").ComputerPlayer} opponent
+	 * @param {import("./GameSettings").GameSettings} settings
+	 */
 	startGame(player, opponent, settings) {
 		gameStore.update((state) => {
-      state.settings = settings;
+			state.settings = settings;
 			state.currentRound = 1;
 			state.player = player;
 			state.opponent = opponent;
-      state.player.selectedCard = null;
+			state.player.selectedCard = null;
 			state.opponent.selectedCard = null;
 			state.currentState = states.SELECT_CARD;
 			return state;
@@ -101,7 +124,7 @@ export const gameState = {
 	async startNewGame() {
 		gameStore.update((state) => {
 			state.currentRound = 1;
-      state.player.selectedCard = null;
+			state.player.selectedCard = null;
 			state.opponent.selectedCard = null;
 			state.availableCards = availableCards;
 			state.currentState = states.START_SCREEN;
@@ -109,8 +132,8 @@ export const gameState = {
 		});
 	},
 	/**
-   * @param {any} card
-   */
+	 * @param {any} card
+	 */
 	selectCard(card) {
 		gameStore.update((state) => {
 			state.player.selectedCard = card == state.player.selectedCard ? null : card;

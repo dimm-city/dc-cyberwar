@@ -32,7 +32,8 @@
 			<h3>hp: {$gameState.player.hitPoints} / {$gameState.player.rootKit.getHitPoints()}</h3>
 			<span>kit type: {$gameState.player.rootKit.type}</span>
 			<span>slots: {$gameState.player.rootKit.slots}</span>
-			<span> <a data-augmented-ui on:click={() => gameState.startNewGame()}> quit </a></span>
+			<span> <button tabindex="0" data-augmented-ui 
+				on:click={() => gameState.startNewGame()}> quit </button></span>
 		</div>
 	</div>
 <div>

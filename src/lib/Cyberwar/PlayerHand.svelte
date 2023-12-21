@@ -39,12 +39,14 @@
 <div class="card-container">
   <div class="card-grid">
     {#each $gameState.player.rootKit.availableCards as card, index}
-      <!-- svelte-ignore a11y-click-events-have-key-events -->
       <div
+        role="button"
+        tabindex="0"
         class="card-cell"
         class:disabled="{disabled}"
         class:selected="{card === $gameState.player.selectedCard}"
-        on:click="{() => gameState.selectCard(card)}">
+        on:click="{() => gameState.selectCard(card)}"
+        on:keydown="{e => e.key === 'Enter' && gameState.selectCard(card)}">
         <Card card="{card}" selected="{card === $gameState.player.selectedCard}"/>
       </div>
     {/each}

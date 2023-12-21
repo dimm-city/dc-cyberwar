@@ -5,12 +5,13 @@
 </script>
 
 <div
+	role="button"
+	tabindex="0"
 	on:click
 	on:keyup
 	class="card"
 	class:selected
 	data-augmented-ui="br-clip bl-clip tr-clip tl-2-clip-x"
-	style="background-image: url('/assets/imgs/cards/{card.type}-card-bg.png');"
 >
 	<div class="card-content">
 		<div class="card-title">
@@ -33,7 +34,6 @@
 		width: 12rem;
 		display: flex;
 		background-color: #1c1c1c;
-		background-image: url('/card-bg.png');
 		background-size: contain;
 		background-position: center;
 		background-repeat: no-repeat;
